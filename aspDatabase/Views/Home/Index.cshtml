@@ -1,0 +1,37 @@
+﻿@Model aspDatabase.Models.Database.Department
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>ASP.NET</h1>
+    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
+    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+</div>
+
+<div class="row">
+    <h4>Name: @Model.Name</h4>
+    <h1>Courses:</h1>
+    <ol>
+        @foreach (var item in Model.Courses)
+        {
+            <li>item.Name</li>
+        }
+    </ol>
+    <h1>Students:</h1>
+    <ol>
+        @foreach (var item in Model.Students)
+        {
+            <li>item.Name</li>
+            <ol>
+                @foreach (var c in item.CourseStudents)
+                {
+                    <li>@c.Cours.Name</li>
+                }
+
+            </ol>
+            
+        }
+    </ol>
+
+</div>
